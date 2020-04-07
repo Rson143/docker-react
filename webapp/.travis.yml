@@ -1,0 +1,12 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t rsongita/webapp -f Dockerfile.dev . 
+
+
+script: 
+  - docker run -e CI=true rsongita/webapp npm run test
+
+  
